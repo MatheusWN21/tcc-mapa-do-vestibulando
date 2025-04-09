@@ -1,0 +1,286 @@
+/* Adicionando o quadrado gigante atrás dos planos */
+.plans-wrapper {
+  position: relative; /* Para permitir o posicionamento do quadrado gigante */
+  max-width: 1090px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+ 
+.plans-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  left: -406px;
+  height: 6000px;
+  width: 200%;
+  height: 150%;      
+  background-color: #222; /* Quadrado preto */
+  z-index: -1; /* Coloca o quadrado atrás do conteúdo dos planos */
+}
+
+/* Estilização dos planos */
+.plans-wrapper .plan-table {
+  background: #fff;
+  width: calc(33% - 20px); /* Ajuste para três planos por linha */
+  padding: 30px 30px;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.plan-table .plan-price-section {
+  display: flex;
+  justify-content: center;
+}
+
+.plan-table .plan-price-area {
+  height: 120px;
+  width: 140px;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.plan-price-area .plan-inner-area {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  line-height: 117px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.plan-price-area .plan-inner-area .plan-text {
+  font-size: 25px;
+  font-weight: 400;
+  position: absolute;
+  top: -10px;
+  left: 17px;
+}
+
+.plan-price-area .plan-inner-area .plan-price {
+  font-size: 45px;
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+.plan-table .plan-package-name {
+  width: 100%;
+  height: 2px;
+  margin: 35px 0;
+  position: relative;
+}
+
+.plan-table .plan-package-name::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 25px;
+  font-weight: 500;
+  background: #fff;
+  padding: 0 15px;
+  transform: translate(-50%, -50%);
+}
+
+.plan-table .plan-features li {
+  margin-bottom: 15px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Ajustes para o contêiner dos planos */
+.plans-container {
+  padding: 50px; /* Reduzindo o espaçamento para ficar mais compacto */
+  margin: 0 auto;
+  max-width: 100%; /* Ajuste a largura para garantir que todos os planos fiquem ao lado */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Garante o espaçamento entre os planos */
+}
+
+.plan-features li .plan-list-name {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.plan-features li .plan-icon {
+  font-size: 15px;
+}
+
+.plan-features li .plan-icon.plan-check {
+  color: #2db94d;
+}
+
+.plan-features li .plan-icon.plan-cross {
+  color: #cd3241;
+}
+
+.plan-table .plan-btn {
+  width: 100%;
+  display: flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+
+.plan-table .plan-btn button {
+  width: 80%;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.plan-table .plan-btn button:hover {
+  border-radius: 5px;
+}
+
+/* Estilo do plano básico */
+.plan-basic .plan-features li::selection {
+  background: #ffd861;
+}
+
+.plan-basic ::selection,
+.plan-basic .plan-price-area,
+.plan-basic .plan-inner-area {
+  background: #ffd861;
+}
+
+.plan-basic .plan-btn button {
+  border: 2px solid #ffd861;
+  background: #fff;
+  color: #ffd861;
+}
+
+.plan-basic .plan-btn button:hover {
+  background: #ffd861;
+  color: #fff;
+}
+
+.plan-basic .plan-package-name {
+  background: #ffecb3;
+}
+
+.plan-basic .plan-package-name::before {
+  content: "Basic";
+}
+
+/* Estilo do plano premium */
+.plan-premium ::selection,
+.plan-premium .plan-price-area,
+.plan-premium .plan-inner-area,
+.plan-premium .plan-btn button {
+  background: #a26bfa;
+}
+
+.plan-premium .plan-btn button:hover {
+  background: #833af8;
+}
+
+.plan-premium .plan-package-name {
+  background: #d0b3ff;
+}
+
+.plan-premium .plan-package-name::before {
+  content: "Premium";
+  font-size: 24px;
+}
+
+/* Estilo do plano ultimate */
+.plan-ultimate ::selection,
+.plan-ultimate .plan-price-area,
+.plan-ultimate .plan-inner-area {
+  background: #43ef8b;
+}
+
+.plan-ultimate .plan-btn button {
+  border: 2px solid #43ef8b;
+  color: #43ef8b;
+  background: #fff;
+}
+
+.plan-ultimate .plan-btn button:hover {
+  background: #43ef8b;
+  color: #fff;
+}
+
+.plan-ultimate .plan-package-name {
+  background: #baf8d4;
+}
+
+.plan-ultimate .plan-package-name::before {
+  content: "Ultimate";
+  font-size: 24px;
+}
+
+/* Media queries */
+@media (max-width: 1020px) {
+  .plans-wrapper .plan-table {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 698px) {
+  .plans-wrapper .plan-table {
+    width: 100%;
+  }
+}
+
+::selection {
+  color: #fff;
+}
+
+/* Estilo do ribbon no plano premium */
+.plan-table .plan-ribbon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+
+.plan-table .plan-ribbon::before,
+.plan-table .plan-ribbon::after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  display: block;
+  border: 7px solid #4606ac;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.plan-table .plan-ribbon::before {
+  top: 0px;
+  right: 15px;
+}
+
+.plan-table .plan-ribbon::after {
+  bottom: 15px;
+  left: 0px;
+}
+
+.plan-table .plan-ribbon span {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transform: rotate(-45deg);
+  width: 200px;
+  background: #a26bfa;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}

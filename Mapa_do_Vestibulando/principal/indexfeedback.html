@@ -1,58 +1,311 @@
 <!DOCTYPE html>
-<!-- Website - www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Responsive Contact Us Form | CodingLab</title>
-    <link rel="stylesheet" href="stylefeedback.css" />
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="content">
-        <div class="left-side">
-          <div class="address details">
-            <i class="fas fa-map-marker-alt"></i>
-            <div class="topic">Endereço</div>
-            <div class="text-one">Rua Marechal Deodoro, 342 – Centro</div>
-            <div class="text-two">Fazenda Rio Grande – PR 
-              -CEP: 83820-000</div>
-          </div>
-          <div class="phone details">
-            <i class="fas fa-phone-alt"></i>
-            <div class="topic">Numero de telefone</div>
-            <div class="text-one">(41) 3567-8910 (fixo)</div>
-            <div class="text-two">(41) 98765-4321 (WhatsApp)</div>
-          </div>
-          <div class="email details">
-            <i class="fas fa-envelope"></i>
-            <div class="topic">Email</div>
-            <div class="text-one">mapavestibulando@gmail.com</div><br>
-            <div class="topic">Site</div>
-            <a href="SistemaHtml.html"><div class="text-two">mapa-do-vestibulando.com</div></a>
-          </div>
+<html lang="pt-br" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mapa do Vestibulando</title>
+  <link rel="stylesheet" href="stylefeedback.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="logo.pp.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1e1e1e; /* Fundo escuro */
+            color: #f5f5f5; /* Texto claro */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e); /* Tons escuros de roxo/azul */
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        
+        /* Conteúdo Principal */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            height: 400px;
+            padding: 2rem;
+            background: #121212; /* Fundo escuro */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .thank-you-message {
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+        
+        .custom-image-container {
+            margin: 0 auto 2rem;
+            max-width: 300px;
+        }
+        
+        .custom-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #444;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+        
+        h2 {
+            color: #ffffff;
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #0a0a0a;
+            color: #aaaaaa;
+            border-top: 1px solid #333;
+        }
+        
+        /* Botão */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a1a2e, #16213e); /* Tons escuros de roxo/azul */
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #5d3a9b;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #1a1a2e, #16213e); /* Tons escuros de roxo/azul */;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Efeitos de confete */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            animation: confetti-fall 5s linear forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .custom-image-container {
+                max-width: 200px;
+            }
+        }
+    /* Estilo do modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin-right: 50%;
+      margin: -5%;
+      padding: 10px; /*redimensiona os itens dentro do quadro principal*/
+      border-radius: 8px;
+      width: 1100px;
+      height: 750px;
+      text-align: justify;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Endereço</div>
+          <div class="text-one">Rua Marechal Deodoro, 342 – Centro</div>
+          <div class="text-two">Fazenda Rio Grande – PR - CEP: 83820-000</div>
         </div>
-        <div class="right-side">
-          <div class="topic-text">Envie sua mensagem</div>
-          <p>Fique a vontade para mandar pedidos e sugestões para nosso curso, estamos abertos a qualquer informação que melhore nosso metodo de ensino.  É um prazer ajudar você =0</p>
-          <form action="#">
-            <div class="input-box">
-              <input type="text" placeholder="Digite seu nome" />
-            </div>
-            <div class="input-box">
-              <input type="text" placeholder="Insira seu email" />
-            </div>
-            <div class="input-box message-box">
-              <textarea placeholder="Adicione sua mensagem"></textarea>
-            </div>
-            <a href="indexAgradecimentos.html"><div class="button">
-              <input type="button" value="Enviar" />
-            </div></a>
-          </form>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Número de telefone</div>
+          <div class="text-one">(41) 3567-8910 (fixo)</div>
+          <div class="text-two">(41) 98765-4321 (WhatsApp)</div>
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">mapavestibulando@gmail.com</div><br>
+          <div class="topic">Site</div>
+          <a href="SistemaHtml.html"><div class="text-two">mapa-do-vestibulando.com</div></a>
         </div>
       </div>
+      <div class="right-side">
+        <div class="topic-text">Envie sua mensagem</div>
+        <p>Fique à vontade para mandar pedidos e sugestões para nosso curso. Estamos abertos a qualquer informação que melhore nosso método de ensino. É um prazer ajudar você =0</p>
+
+        <!-- CORRIGIDO: Adicionado id="formulario" -->
+        <form id="formulario">
+          <div class="input-box">
+            <input type="text" placeholder="Digite seu nome" required />
+          </div>
+          <div class="input-box">
+            <input type="email" placeholder="Insira seu email" required />
+          </div>
+          <div class="input-box message-box">
+            <textarea placeholder="Adicione sua mensagem" required></textarea>
+          </div>
+          <div class="button">
+            <!-- CORRIGIDO: type="submit" -->
+            <input type="submit" value="Enviar" />
+          </div>
+        </form>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <!-- Modal -->
+  <div id="meuModal" class="modal">
+    <div class="modal-content">
+      <header>
+        <h1>Muito Obrigado!</h1>
+        <p>Seu feedback é muito importante para nós</p>
+    </header>
+    
+    <main>
+        <!-- ÁREA PARA SUA IMAGEM PERSONALIZADA -->
+        <div class="custom-image-container">
+            <img src="logoAgradecimento.png" alt="Imagem de agradecimento" class="custom-image">
+        </div>
+        
+        <div class="thank-you-message">
+            <p>Recebemos sua mensagem e valorizamos muito sua contribuição, estamos sempre buscando melhorar e seu feedback nos ajuda nessa jornada.</p>
+        </div>
+        
+        <a href="SistemaHtml.html" class="btn">Voltar à Página Inicial</a>
+
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <p>Bem-vindo!</p>
+    </main>
+    </div>
+  </div>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const modal = document.getElementById("meuModal");
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault(); // Impede envio real
+      modal.style.display = "block"; // Mostra o modal
+    });
+
+    function fecharModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+            // Mensagem no console
+            console.log('%cObrigado pelo seu feedback!', 'color: #9d50bb; font-size: 16px; font-weight: bold;');
+            
+            // Efeito no botão
+            const btn = document.querySelector('.btn');
+            btn.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Animação de digitação
+            const message = "Obrigado por nos ajudar a melhorar!";
+            const thankYouMessage = document.querySelector('.thank-you-message h2');
+            
+            let i = 0;
+            thankYouMessage.textContent = '';
+            function typeWriter() {
+                if (i < message.length) {
+                    thankYouMessage.textContent += message.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            typeWriter();
+        });
+  </script>
+</body>
 </html>

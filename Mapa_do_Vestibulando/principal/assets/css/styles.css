@@ -8,8 +8,7 @@
   /*========== Colors =====0=====*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --white-color: hsl(0, 0%, 100%);
-  --black-color: hsl(0, 0%, 0%);
-
+  --color:  #3070c8;
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Montserrat Alternates", sans-serif;
@@ -66,9 +65,9 @@ a {
 /*=============== HEADER & NAV ===============*/
 .header {
   position: fixed;
-  width: 100vw; /* Alterado para 100vw para ocupar toda a largura da viewport */
+  width: 100vw; /* Alterado para 100vw para ocupar toda a largura da viewport */ /*altera a largura do header*/
   top: 0;
-  left: 0;
+  left: -5;
   background-color: var(--black-color);
   z-index: var(--z-fixed);
   margin: 0; /* Garantir que não haja margem */
@@ -100,7 +99,7 @@ a {
     position: fixed;
     left: -100%;
     top: 0;
-    background-color: linear-gradient(135deg, #1a1a2e, #16213e);
+    background-color: linear-gradient(135deg, #959599, #ededed);
     width: 100%;
     height: 100%;
     padding: 6rem 3.5rem 4.5rem;
@@ -145,7 +144,7 @@ a {
 
 .nav__link {
   position: relative;
-  color: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #3070c8;
   font-size: var(--h1-font-size);
   font-weight: var(--font-medium);
   display: inline-flex;
@@ -173,7 +172,7 @@ a {
   bottom: -6px;
   width: 0;
   height: 2px;
-  background-color: linear-gradient(135deg, #1a1a2e, #16213e);
+  background-color: linear-gradient(135deg, #1a1a2e, #ffffff);
   transition: width .8s ease-out;
 }
 
@@ -210,13 +209,13 @@ a {
 }
 
 .nav__social-link {
-  color: rgb(86, 255, 128);
+  color: #3070c8;
   font-size: 1.5rem;
   transition: transform .4s;
 }
 
 .nav__social-link:hover {
-  color: rgb(86, 255, 128);
+  color: #3070c8;
   transform: translateY(-.25rem);
 }
 
